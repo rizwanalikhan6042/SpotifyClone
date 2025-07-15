@@ -1,125 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&family=TikTok+Sans:opsz,wght@12..36,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libertinus+Mono&family=TikTok+Sans:opsz,wght@12..36,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Varela+Round&display=swap');
-body{
+
+body {
     background-color: rgb(239, 208, 166);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
-
+    box-sizing: border-box;
 }
 
-nav{
-    font-family: 'Ubuntu','sans-serif';
-
+nav {
+    font-family: 'Ubuntu', 'sans-serif';
 }
 
-nav ul{
+nav ul {
     display: flex;
     align-items: center;
     list-style-type: none;
     height: 65px;
     background-color: black;
     color: white;
+    padding: 0 10px;
 }
 
-nav ul li{
+nav ul li {
     padding: 0 12px;
 }
 
-.brand img{
-        width: 46px;
-        padding: 0 8px;
+.brand img {
+    width: 46px;
+    padding: 0 8px;
 }
 
-.brand{
+.brand {
     display: flex;
     align-items: center;
     font-weight: bolder;
     font-size: 1.3rem;
 }
 
-.container{
+/* 🔥 Banner untouched - just layout fixes */
+.container {
     min-height: 72vh;
     background-color: black;
     color: white;
-    font-family: 'Varela Round','sans-serif';
+    font-family: 'Varela Round', 'sans-serif';
     display: flex;
+    flex-wrap: wrap;
     margin: 23px auto;
-    width: 70%;
+    width: 85%;
+    max-width: 1200px;
     border-radius: 12px;
     padding: 34px;
     background-image: url('spot2.jpg');
-     /* for image to completely come in container */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.Bottom{
-    position: sticky;
-    height: 130px;
-    background-color: black;
-    color: white;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    
+.SongsList {
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
 }
 
-.bottomLayer{
-    display: flex;
-    align-items: center;
+.songItemContainer {
+    margin-top: 40px;
 }
 
-.volumeDiv{
-    margin-left: 5vw;
-    vertical-align: middle;
-    margin-top: 16px;
-}
-
-#volumeBar {
-  width: 100px;
-  accent-color: #1DB954; /* Spotify green */
-  cursor: pointer;
-}
-
-
- #volumeIcon {
-  color: white;
-  font-size: 18px;
-}
-
-
-
-.icons{
-    margin-top: 16px;
-     display: flex;
-  align-items: center;
-}
-
-.icons i{
-    cursor: pointer;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#myProgressBar{
-    width: 88vw;
-    cursor: pointer;
-}
-
-
-
-.songItemContainer{
-    margin-top: 75px;
-    
-}
-
-.songItem{
+.songItem {
     height: 50px;
     display: flex;
     background-color: white;
@@ -128,30 +80,156 @@ nav ul li{
     justify-content: space-between;
     align-items: center;
     border-radius: 34px;
+    padding: 0 10px;
 }
 
-.songItem img{
+.songItem img {
     width: 45px;
-    margin: 0 23px;
+    margin: 0 15px;
     border-radius: 34px;
 }
 
-.timestamp{
-    margin: 0 23px;
+.timestamp {
+    margin: 0 15px;
 }
 
-.timestamp i{
+.timestamp i {
     cursor: pointer;
 }
 
+/* === Bottom player === */
+.Bottom {
+  position: sticky;
+  bottom: 0;
+  height: auto;
+  background-color: black;
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.bottomLayer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+  align-items: right;
+}
+
+.icons i {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+#myProgressBar {
+  width: 100%;
+  max-width: none;
+  accent-color: #1DB954;
+  cursor: pointer;
+}
+
+.volumeDiv {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#volumeBar {
+  width: 100px;
+  accent-color: #1DB954;
+  cursor: pointer;
+}
+
+#volumeIcon {
+  color: white;
+  font-size: 1.2rem;
+}
+
 .songInfo {
-    position: absolute;
-    left: 10vw;
-    font-family:'Varela Round','sans-serif';
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
 }
 
-.songInfo img{
-    opacity: 0;
-    transition: opacity 0.6s ease-in;
+.songInfo img {
+  width: 32px;
+  height: 32px;
+  opacity: 0;
+  transition: opacity 0.6s ease-in;
+  border-radius: 50%;
 }
 
+/* ✅ RESPONSIVE PART */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .SongsList {
+        width: 100%;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .bottomLayer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .songInfo {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #myProgressBar {
+        width: 95vw;
+    }
+
+    .volumeDiv {
+        margin-left: 0;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .songItem {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .songItem img {
+        margin: 10px 0;
+    }
+
+    .timestamp {
+        margin: 10px 0;
+    }
+
+    .volumeDiv {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .icons i {
+        font-size: 20px;
+    }
+
+    .brand {
+        font-size: 1rem;
+    }
+}
